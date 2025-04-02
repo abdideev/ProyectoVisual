@@ -20,6 +20,7 @@ namespace GestionEmpresa
         private void Form1_Load(object sender, EventArgs e)
         {
             const string saludo = "Hola Mundo";
+            const string saludo2 = "Comprobar cambio de cuenta";
         }
     }
 }
