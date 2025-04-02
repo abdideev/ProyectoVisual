@@ -23,5 +23,10 @@ namespace GestionEmpresa
             const string saludo2 = "Comprobar cambio de cuenta";
             String ivan = "hola gays";
         }
+
+        private void NIPTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
