@@ -21,6 +21,8 @@ namespace GestionEmpresa
         {
             const string saludo = "Hola Mundo";
             const string saludo2 = "Comprobar cambio de cuenta";
+
+            String ivan = "hola gays";
         }
     }
 }
