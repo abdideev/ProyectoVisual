@@ -88,6 +88,7 @@
             this.EntrarBtn.TabIndex = 4;
             this.EntrarBtn.Text = "INGRESAR";
             this.EntrarBtn.UseVisualStyleBackColor = false;
+            this.EntrarBtn.Click += new System.EventHandler(this.EntrarBtn_Click);
             // 
             // SalirBtn
             // 
@@ -114,11 +115,12 @@
             this.NIPTxt.ForeColor = System.Drawing.SystemColors.WindowText;
             this.NIPTxt.Location = new System.Drawing.Point(112, 243);
             this.NIPTxt.Name = "NIPTxt";
+            this.NIPTxt.PasswordChar = '•';
             this.NIPTxt.Size = new System.Drawing.Size(159, 20);
             this.NIPTxt.TabIndex = 7;
             this.NIPTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -133,7 +135,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.Control;
-            this.Name = "Form1";
+            this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

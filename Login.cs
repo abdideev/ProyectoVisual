@@ -23,5 +23,13 @@ namespace GestionEmpresa
             const string saludo2 = "Comprobar cambio de cuenta";
             String ivan = "hola gays";
         }
+
+        private void EntrarBtn_Click(object sender, EventArgs e)
+        {
+            Dashboard f2 = new Dashboard();
+            this.Hide();
+            f2.ShowDialog();
+            this.Show();
+        }
     }
 }
