@@ -34,10 +34,10 @@ namespace GestionEmpresa
 
         private void GastosBtn_Click(object sender, EventArgs e)
         {
-            //Gastos f4 = new Gastos();
-            //this.Hide();
-            //f4.ShowDialog();
-            //this.Show();
+            Gastos f4 = new Gastos();
+            this.Hide();
+            f4.ShowDialog();
+            this.Show();
         }
 
         private void ReporteBtn_Click(object sender, EventArgs e)
