@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -59,6 +60,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
             this.labelHora = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             this.panelTareas.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -459,6 +461,12 @@
             this.labelHora.TabIndex = 0;
             this.labelHora.Text = "label1";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
             // Gastos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -530,5 +538,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.Label labelHora;
+        private System.Windows.Forms.Timer timer1;
     }
 }

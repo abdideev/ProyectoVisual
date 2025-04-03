@@ -63,12 +63,6 @@ namespace GestionEmpresa
             Close();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            this.labelHora.Text = DateTime.Now.ToString("hh:mm:ss");
-            this.labelFecha.Text = DateTime.Now.ToLongDateString();
-        }
-
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             nEstadoguardar = 1;
@@ -101,6 +95,12 @@ namespace GestionEmpresa
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            this.labelHora.Text = DateTime.Now.ToString("hh:mm:ss");
+            this.labelFecha.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

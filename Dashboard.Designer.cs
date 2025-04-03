@@ -122,7 +122,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1316, 144);
             this.panel1.TabIndex = 5;
@@ -148,7 +148,7 @@
             this.panel2.Controls.Add(this.IngresosBtn);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 144);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(369, 508);
             this.panel2.TabIndex = 6;
@@ -160,7 +160,7 @@
             this.SalirBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalirBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.SalirBtn.Location = new System.Drawing.Point(36, 411);
-            this.SalirBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SalirBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SalirBtn.Name = "SalirBtn";
             this.SalirBtn.Size = new System.Drawing.Size(309, 69);
             this.SalirBtn.TabIndex = 10;
@@ -175,7 +175,7 @@
             this.ReporteBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReporteBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.ReporteBtn.Location = new System.Drawing.Point(36, 247);
-            this.ReporteBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ReporteBtn.Margin = new System.Windows.Forms.Padding(4);
             this.ReporteBtn.Name = "ReporteBtn";
             this.ReporteBtn.Size = new System.Drawing.Size(309, 69);
             this.ReporteBtn.TabIndex = 9;
@@ -190,7 +190,7 @@
             this.GastosBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GastosBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.GastosBtn.Location = new System.Drawing.Point(36, 146);
-            this.GastosBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GastosBtn.Margin = new System.Windows.Forms.Padding(4);
             this.GastosBtn.Name = "GastosBtn";
             this.GastosBtn.Size = new System.Drawing.Size(309, 69);
             this.GastosBtn.TabIndex = 8;
@@ -206,7 +206,7 @@
             this.IngresosBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IngresosBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.IngresosBtn.Location = new System.Drawing.Point(36, 49);
-            this.IngresosBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IngresosBtn.Margin = new System.Windows.Forms.Padding(4);
             this.IngresosBtn.Name = "IngresosBtn";
             this.IngresosBtn.Size = new System.Drawing.Size(309, 69);
             this.IngresosBtn.TabIndex = 7;
@@ -236,7 +236,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
