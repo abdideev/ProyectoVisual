@@ -151,10 +151,10 @@
             this.label26.Location = new System.Drawing.Point(39, 129);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(982, 20);
+            this.label26.Size = new System.Drawing.Size(970, 20);
             this.label26.TabIndex = 66;
-            this.label26.Text = "Información Ingresos ------------------------------------------------------------" +
-    "-----------------------------------------------------";
+            this.label26.Text = "Información Gastos --------------------------------------------------------------" +
+    "---------------------------------------------------";
             // 
             // label11
             // 
@@ -430,9 +430,10 @@
             this.label5.Location = new System.Drawing.Point(16, 41);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(232, 52);
+            this.label5.Size = new System.Drawing.Size(189, 52);
             this.label5.TabIndex = 4;
-            this.label5.Text = "INGRESOS";
+            this.label5.Text = "GASTOS";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // labelFecha
             // 

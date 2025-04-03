@@ -97,5 +97,10 @@ namespace GestionEmpresa
             this.EstadoBotonesPrincipales(false);
             txtConcepto.Focus();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
