@@ -53,6 +53,7 @@ namespace GestionEmpresa
             btnNuevo.Enabled = lEstado;
             btnActualizar.Enabled = lEstado;
             btnEliminar.Enabled = lEstado;
+            btnReporte.Enabled = lEstado;
             btnRegresar.Enabled = lEstado;
         }
         #endregion
