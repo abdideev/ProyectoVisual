@@ -38,10 +38,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.IngresosBtn = new System.Windows.Forms.Button();
-            this.GastosBtn = new System.Windows.Forms.Button();
-            this.ReporteBtn = new System.Windows.Forms.Button();
             this.SalirBtn = new System.Windows.Forms.Button();
+            this.ReporteBtn = new System.Windows.Forms.Button();
+            this.GastosBtn = new System.Windows.Forms.Button();
+            this.IngresosBtn = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,7 +63,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(201)))), ((int)(((byte)(214)))));
-            this.label2.Location = new System.Drawing.Point(766, 19);
+            this.label2.Location = new System.Drawing.Point(796, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 19);
             this.label2.TabIndex = 1;
@@ -91,9 +91,10 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(201)))), ((int)(((byte)(214)))));
             this.label4.Location = new System.Drawing.Point(15, 29);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(151, 19);
+            this.label4.Size = new System.Drawing.Size(233, 19);
             this.label4.TabIndex = 3;
-            this.label4.Text = "CONTROL DE GASTOS";
+            this.label4.Text = "CONTROL DE GASTOS E INGRESOS";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -114,9 +115,10 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, -1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(992, 117);
+            this.panel1.Size = new System.Drawing.Size(987, 117);
             this.panel1.TabIndex = 5;
             // 
             // label6
@@ -137,15 +139,59 @@
             this.panel2.Controls.Add(this.ReporteBtn);
             this.panel2.Controls.Add(this.GastosBtn);
             this.panel2.Controls.Add(this.IngresosBtn);
-            this.panel2.Location = new System.Drawing.Point(-8, 115);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 117);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(277, 493);
+            this.panel2.Size = new System.Drawing.Size(277, 413);
             this.panel2.TabIndex = 6;
+            // 
+            // SalirBtn
+            // 
+            this.SalirBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.SalirBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SalirBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SalirBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.SalirBtn.Location = new System.Drawing.Point(27, 334);
+            this.SalirBtn.Name = "SalirBtn";
+            this.SalirBtn.Size = new System.Drawing.Size(232, 56);
+            this.SalirBtn.TabIndex = 10;
+            this.SalirBtn.Text = "SALIR";
+            this.SalirBtn.UseVisualStyleBackColor = false;
+            this.SalirBtn.Click += new System.EventHandler(this.SalirBtn_Click);
+            // 
+            // ReporteBtn
+            // 
+            this.ReporteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(185)))), ((int)(((byte)(221)))));
+            this.ReporteBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReporteBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReporteBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.ReporteBtn.Location = new System.Drawing.Point(27, 201);
+            this.ReporteBtn.Name = "ReporteBtn";
+            this.ReporteBtn.Size = new System.Drawing.Size(232, 56);
+            this.ReporteBtn.TabIndex = 9;
+            this.ReporteBtn.Text = "REPORTE";
+            this.ReporteBtn.UseVisualStyleBackColor = false;
+            this.ReporteBtn.Click += new System.EventHandler(this.ReporteBtn_Click);
+            // 
+            // GastosBtn
+            // 
+            this.GastosBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(185)))), ((int)(((byte)(221)))));
+            this.GastosBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GastosBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GastosBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.GastosBtn.Location = new System.Drawing.Point(27, 119);
+            this.GastosBtn.Name = "GastosBtn";
+            this.GastosBtn.Size = new System.Drawing.Size(232, 56);
+            this.GastosBtn.TabIndex = 8;
+            this.GastosBtn.Text = "GASTOS";
+            this.GastosBtn.UseVisualStyleBackColor = false;
+            this.GastosBtn.Click += new System.EventHandler(this.GastosBtn_Click);
             // 
             // IngresosBtn
             // 
             this.IngresosBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(185)))), ((int)(((byte)(221)))));
             this.IngresosBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.IngresosBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.IngresosBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IngresosBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.IngresosBtn.Location = new System.Drawing.Point(27, 40);
@@ -155,42 +201,6 @@
             this.IngresosBtn.Text = "INGRESOS";
             this.IngresosBtn.UseVisualStyleBackColor = false;
             this.IngresosBtn.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // GastosBtn
-            // 
-            this.GastosBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(185)))), ((int)(((byte)(221)))));
-            this.GastosBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GastosBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.GastosBtn.Location = new System.Drawing.Point(27, 119);
-            this.GastosBtn.Name = "GastosBtn";
-            this.GastosBtn.Size = new System.Drawing.Size(232, 56);
-            this.GastosBtn.TabIndex = 8;
-            this.GastosBtn.Text = "GASTOS";
-            this.GastosBtn.UseVisualStyleBackColor = false;
-            // 
-            // ReporteBtn
-            // 
-            this.ReporteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(185)))), ((int)(((byte)(221)))));
-            this.ReporteBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReporteBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.ReporteBtn.Location = new System.Drawing.Point(27, 201);
-            this.ReporteBtn.Name = "ReporteBtn";
-            this.ReporteBtn.Size = new System.Drawing.Size(232, 56);
-            this.ReporteBtn.TabIndex = 9;
-            this.ReporteBtn.Text = "REPORTE";
-            this.ReporteBtn.UseVisualStyleBackColor = false;
-            // 
-            // SalirBtn
-            // 
-            this.SalirBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.SalirBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalirBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.SalirBtn.Location = new System.Drawing.Point(27, 334);
-            this.SalirBtn.Name = "SalirBtn";
-            this.SalirBtn.Size = new System.Drawing.Size(232, 56);
-            this.SalirBtn.TabIndex = 10;
-            this.SalirBtn.Text = "SALIR";
-            this.SalirBtn.UseVisualStyleBackColor = false;
             // 
             // label7
             // 

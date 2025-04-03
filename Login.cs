@@ -31,5 +31,10 @@ namespace GestionEmpresa
             f2.ShowDialog();
             this.Show();
         }
+
+        private void SalirBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

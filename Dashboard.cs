@@ -26,6 +26,35 @@ namespace GestionEmpresa
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Ingresos f3 = new Ingresos();
+            this.Hide();
+            f3.ShowDialog();
+            this.Show();
+        }
+
+        private void GastosBtn_Click(object sender, EventArgs e)
+        {
+            //Gastos f4 = new Gastos();
+            //this.Hide();
+            //f4.ShowDialog();
+            //this.Show();
+        }
+
+        private void ReporteBtn_Click(object sender, EventArgs e)
+        {
+            //Reporte f5 = new Reporte();
+            //this.Hide();
+            //f5.ShowDialog();
+            //this.Show();
+        }
+
+        private void SalirBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -81,6 +81,7 @@
             // IngresarBtn
             // 
             this.IngresarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(185)))), ((int)(((byte)(221)))));
+            this.IngresarBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.IngresarBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IngresarBtn.Location = new System.Drawing.Point(97, 303);
             this.IngresarBtn.Name = "IngresarBtn";
@@ -93,6 +94,7 @@
             // SalirBtn
             // 
             this.SalirBtn.BackColor = System.Drawing.Color.LightCoral;
+            this.SalirBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SalirBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SalirBtn.Location = new System.Drawing.Point(97, 370);
             this.SalirBtn.Name = "SalirBtn";
@@ -100,6 +102,7 @@
             this.SalirBtn.TabIndex = 5;
             this.SalirBtn.Text = "SALIR";
             this.SalirBtn.UseVisualStyleBackColor = false;
+            this.SalirBtn.Click += new System.EventHandler(this.SalirBtn_Click);
             // 
             // NoCuentaTxt
             // 
