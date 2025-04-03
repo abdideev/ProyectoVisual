@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.EntrarBtn = new System.Windows.Forms.Button();
+            this.IngresarBtn = new System.Windows.Forms.Button();
             this.SalirBtn = new System.Windows.Forms.Button();
             this.NoCuentaTxt = new System.Windows.Forms.TextBox();
             this.NIPTxt = new System.Windows.Forms.TextBox();
@@ -52,43 +52,43 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(55, 64);
+            this.label2.Location = new System.Drawing.Point(68, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(282, 50);
+            this.label2.Size = new System.Drawing.Size(260, 50);
             this.label2.TabIndex = 1;
-            this.label2.Text = "BIENVENIDOS";
+            this.label2.Text = "BIENVENIDO";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(132, 142);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(124, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 22);
+            this.label3.Size = new System.Drawing.Size(133, 19);
             this.label3.TabIndex = 2;
-            this.label3.Text = "NO. CUENTA";
+            this.label3.Text = "Número de cuenta";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(171, 209);
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(175, 218);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 22);
+            this.label4.Size = new System.Drawing.Size(33, 19);
             this.label4.TabIndex = 3;
             this.label4.Text = "NIP";
             // 
-            // EntrarBtn
+            // IngresarBtn
             // 
-            this.EntrarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(185)))), ((int)(((byte)(221)))));
-            this.EntrarBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EntrarBtn.Location = new System.Drawing.Point(97, 303);
-            this.EntrarBtn.Name = "EntrarBtn";
-            this.EntrarBtn.Size = new System.Drawing.Size(194, 52);
-            this.EntrarBtn.TabIndex = 4;
-            this.EntrarBtn.Text = "INGRESAR";
-            this.EntrarBtn.UseVisualStyleBackColor = false;
-            this.EntrarBtn.Click += new System.EventHandler(this.EntrarBtn_Click);
+            this.IngresarBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(185)))), ((int)(((byte)(221)))));
+            this.IngresarBtn.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IngresarBtn.Location = new System.Drawing.Point(97, 303);
+            this.IngresarBtn.Name = "IngresarBtn";
+            this.IngresarBtn.Size = new System.Drawing.Size(194, 52);
+            this.IngresarBtn.TabIndex = 4;
+            this.IngresarBtn.Text = "INGRESAR";
+            this.IngresarBtn.UseVisualStyleBackColor = false;
+            this.IngresarBtn.Click += new System.EventHandler(this.EntrarBtn_Click);
             // 
             // SalirBtn
             // 
@@ -103,7 +103,7 @@
             // 
             // NoCuentaTxt
             // 
-            this.NoCuentaTxt.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.NoCuentaTxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.NoCuentaTxt.Location = new System.Drawing.Point(112, 175);
             this.NoCuentaTxt.Name = "NoCuentaTxt";
             this.NoCuentaTxt.Size = new System.Drawing.Size(159, 20);
@@ -129,7 +129,7 @@
             this.Controls.Add(this.NIPTxt);
             this.Controls.Add(this.NoCuentaTxt);
             this.Controls.Add(this.SalirBtn);
-            this.Controls.Add(this.EntrarBtn);
+            this.Controls.Add(this.IngresarBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -150,7 +150,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button EntrarBtn;
+        private System.Windows.Forms.Button IngresarBtn;
         private System.Windows.Forms.Button SalirBtn;
         private System.Windows.Forms.TextBox NoCuentaTxt;
         private System.Windows.Forms.TextBox NIPTxt;

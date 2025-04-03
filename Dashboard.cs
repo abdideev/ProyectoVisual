@@ -23,5 +23,10 @@ namespace GestionEmpresa
             this.label2.Text = DateTime.Now.ToLongDateString();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
