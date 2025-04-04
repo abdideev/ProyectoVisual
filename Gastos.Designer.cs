@@ -326,6 +326,7 @@
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnActualizar
             // 
@@ -462,6 +463,7 @@
             this.Name = "Gastos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gastos";
+            this.Load += new System.EventHandler(this.Gastos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
             this.panelTareas.ResumeLayout(false);
             this.panelHeader.ResumeLayout(false);

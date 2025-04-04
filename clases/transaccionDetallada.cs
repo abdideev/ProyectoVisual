@@ -16,9 +16,10 @@ namespace GestionEmpresa.db
         public string Usuario { get; set; }
         public string Categoria { get; set; }
         public string MetodoPago { get; set; }
+        public string Tipo { get; set; }
 
         // Constructor que inicializa todos los atributos
-        public transaccionDetallada(int idTransaccion, string concepto, decimal monto, DateTime fecha, string descripcion, string usuario, string categoria, string metodoPago)
+        public transaccionDetallada(int idTransaccion, string concepto, decimal monto, DateTime fecha, string descripcion, string usuario, string categoria, string metodoPago, string tipo)
         {
             IdTransaccion = idTransaccion;
             Concepto = concepto;
@@ -28,6 +29,7 @@ namespace GestionEmpresa.db
             Usuario = usuario;
             Categoria = categoria;
             MetodoPago = metodoPago;
+            Tipo = tipo;
         }
     }
 }

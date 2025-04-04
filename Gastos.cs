@@ -16,17 +16,16 @@ namespace GestionEmpresa
     {
         db.dbQuerys Dbquerys = new db.dbQuerys();
 
+        List<categoria> categoriasList = new List<categoria>();
+        List<metodo_pago> metodosPagoList = new List<metodo_pago>();
+        List<transaccionDetallada> transaccionesList = new List<transaccionDetallada>();
+
         public Gastos()
         {
             InitializeComponent();
 
-
-            List<categoria> categoriasList = new List<categoria>();
-            List<tipo> tiposList = new List<tipo>();
-            List<metodo_pago> metodosPagoList = new List<metodo_pago>();
-
             categoriasList = Dbquerys.GetCategorias(2);
-            tiposList = Dbquerys.GetTipos();
+            transaccionesList = Dbquerys.GetTransactions("Gasto");
             metodosPagoList = Dbquerys.GetMetodoPago();
 
 
@@ -39,6 +38,8 @@ namespace GestionEmpresa
             {
                 cmbPago.Items.Add(metodo.Nombre);
             }
+
+            dgvListado.DataSource = transaccionesList;
 
         }
 
@@ -130,7 +131,64 @@ namespace GestionEmpresa
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            int usuario_id = db.dbQuerys.user1.Id;
+            int categoria_id = 0;
+            int metodo_pago_id = 0;
+            string concepto = txtConcepto.Text;
+            string monto = txtMonto.Text;
+            string descripcion = txtDescripcion.Text;
+            string fecha = dpFecha.Value.ToString("yyyy-MM-dd");
+            string categoria_nombre = cmbCategoria.Text;
+            string tipo_pago = cmbPago.Text;
 
+            foreach (var categoria in categoriasList)
+            {
+                if (categoria.Nombre.Equals(categoria_nombre))
+                {
+                    categoria_id = categoria.Id;
+                }
+            }
+
+            foreach (var metodo in metodosPagoList)
+            {
+                if (metodo.Nombre.Equals(tipo_pago))
+                {
+                    metodo_pago_id = metodo.Id;
+                }
+            }
+
+
+            Dbquerys.createTransaction(usuario_id, categoria_id, metodo_pago_id, concepto, Convert.ToDouble(monto), Convert.ToDateTime(fecha), descripcion);
+            this.LimpiarTexto();
+            this.EstadoTexto(false);
+            this.EstadoBotonesProcesos(false);
+            this.EstadoBotonesPrincipales(true);
+            dgvListado.DataSource = Dbquerys.GetTransactions("Gasto");
+
+        }
+
+        private void Gastos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvListado.Rows.Count > 0 && dgvListado.CurrentRow != null)
+            {
+                int id_transaccion = Convert.ToInt32(dgvListado.CurrentRow.Cells["IdTransaccion"].Value);
+
+                dbQuerys db = new dbQuerys();
+                string resultado = db.DeleteTransaction(id_transaccion);
+
+                MessageBox.Show(resultado, "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dgvListado.DataSource = db.GetTransactions("Gasto");
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una transacción para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

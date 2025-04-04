@@ -154,37 +154,45 @@ namespace GestionEmpresa.db
             return categorias;
         }
 
-        public List<transaccionDetallada> GetTransactions()
+        public List<transaccionDetallada> GetTransactions(string nombre_tipo)
         {
             List<transaccionDetallada> transacciones = new List<transaccionDetallada>();
 
             string query = @"SELECT t.id, t.concepto, t.monto, t.fecha, t.descripcion,  
-       u.nombre AS usuario, c.nombre AS categoria, mp.nombre AS metodo_pago  
-FROM transaccion t  
-JOIN usuario u ON t.id_usuario = u.id  
-JOIN categoria c ON t.id_categoria = c.id  
-JOIN metodo_pago mp ON t.id_metodo_pago = mp.id  
-ORDER BY t.fecha DESC;";
+               u.nombre AS usuario, c.nombre AS categoria, mp.nombre AS metodo_pago,
+               tp.nombre AS tipo
+            FROM transaccion t  
+            JOIN usuario u ON t.id_usuario = u.id  
+            JOIN categoria c ON t.id_categoria = c.id  
+            JOIN metodo_pago mp ON t.id_metodo_pago = mp.id
+            JOIN tipo tp ON c.id_tipo = tp.id
+            WHERE tp.nombre = @NOMBRE_TIPO
+            ORDER BY t.fecha DESC;";
 
             try
             {
                 using (var conn = DbConnection.CreaeConexion())
                 using (var cmd = new NpgsqlCommand(query, conn))
-                using (var reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read())
+                    cmd.Parameters.AddWithValue("@NOMBRE_TIPO", nombre_tipo);
+
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        transaccionDetallada dataRow = new transaccionDetallada(
-                            reader.GetInt32(reader.GetOrdinal("id")),
-                            reader.GetString(reader.GetOrdinal("concepto")),
-                            reader.GetDecimal(reader.GetOrdinal("monto")),
-                            reader.GetDateTime(reader.GetOrdinal("fecha")),
-                            reader.GetString(reader.GetOrdinal("descripcion")),
-                            reader.GetString(reader.GetOrdinal("usuario")),
-                            reader.GetString(reader.GetOrdinal("categoria")),
-                            reader.GetString(reader.GetOrdinal("metodo_pago"))
-                        );
-                        transacciones.Add(dataRow);
+                        while (reader.Read())
+                        {
+                            transaccionDetallada dataRow = new transaccionDetallada(
+                                reader.GetInt32(reader.GetOrdinal("id")),
+                                reader.GetString(reader.GetOrdinal("concepto")),
+                                reader.GetDecimal(reader.GetOrdinal("monto")),
+                                reader.GetDateTime(reader.GetOrdinal("fecha")),
+                                reader.GetString(reader.GetOrdinal("descripcion")),
+                                reader.GetString(reader.GetOrdinal("usuario")),
+                                reader.GetString(reader.GetOrdinal("categoria")),
+                                reader.GetString(reader.GetOrdinal("metodo_pago")),
+                                reader.GetString(reader.GetOrdinal("tipo"))
+                            );
+                            transacciones.Add(dataRow);
+                        }
                     }
                 }
             }
@@ -192,6 +200,7 @@ ORDER BY t.fecha DESC;";
             {
                 MessageBox.Show("Error en la base de datos: " + ex.Message);
             }
+
             return transacciones;
         }
 
@@ -222,5 +231,33 @@ ORDER BY t.fecha DESC;";
                 MessageBox.Show("Error en la base de datos: " + ex.Message);
             }
         }
+
+        public string DeleteTransaction(int id_transaccion)
+        {
+            string query = "DELETE FROM transaccion WHERE id = @id";
+            try
+            {
+                using (var conn = DbConnection.CreaeConexion())
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id_transaccion);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        return "Transacción eliminada correctamente.";
+                    }
+                    else
+                    {
+                        return "No se encontró la transacción con el ID especificado.";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return "Error en la base de datos: " + ex.Message;
+            }
+        }
+
     }
 }

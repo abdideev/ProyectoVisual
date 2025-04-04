@@ -26,7 +26,7 @@ namespace GestionEmpresa
             InitializeComponent();
 
             categoriasList = Dbquerys.GetCategorias(1);
-            transaccionesList = Dbquerys.GetTransactions();
+            transaccionesList = Dbquerys.GetTransactions("Ingreso");
             metodosPagoList = Dbquerys.GetMetodoPago();
 
             foreach (var categoria in categoriasList)
@@ -130,7 +130,6 @@ namespace GestionEmpresa
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(db.dbQuerys.user1.Id.ToString());
             int usuario_id = db.dbQuerys.user1.Id;
             int categoria_id = 0;
             int metodo_pago_id = 0;
@@ -140,6 +139,7 @@ namespace GestionEmpresa
             string fecha = dpFecha.Value.ToString("yyyy-MM-dd");
             string categoria_nombre = cmbCategoriaI.Text;
             string tipo_pago = cmbPagoI.Text;
+           
 
             foreach (var categoria in categoriasList)
             {
@@ -157,9 +157,31 @@ namespace GestionEmpresa
                 }
             }
 
-            MessageBox.Show(metodo_pago_id.ToString());
-
             Dbquerys.createTransaction(usuario_id, categoria_id, metodo_pago_id, concepto, Convert.ToDouble(monto), Convert.ToDateTime(fecha), descripcion);
+            this.LimpiarTexto();
+            this.EstadoTexto(false);
+            this.EstadoBotonesProcesos(false);
+            this.EstadoBotonesPrincipales(true);
+            dgvListado.DataSource = Dbquerys.GetTransactions("Ingreso");
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvListado.Rows.Count > 0 && dgvListado.CurrentRow != null)
+            {
+                int id_transaccion = Convert.ToInt32(dgvListado.CurrentRow.Cells["IdTransaccion"].Value);
+
+                dbQuerys db = new dbQuerys();
+                string resultado = db.DeleteTransaction(id_transaccion);
+
+                MessageBox.Show(resultado, "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dgvListado.DataSource = db.GetTransactions("Ingreso");
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una transacción para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

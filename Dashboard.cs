@@ -53,8 +53,13 @@ namespace GestionEmpresa
 
         private void SalirBtn_Click(object sender, EventArgs e)
         {
-            DbConnection.Disconnect();
-            Close();
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea salir?", "Confirmar salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                DbConnection.Disconnect();
+                Application.Exit(); 
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)

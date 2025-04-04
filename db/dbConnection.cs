@@ -27,8 +27,8 @@ namespace GestionEmpresa.db
         {
             servidor = "localhost";
             usuario = "postgres";
-            password = "4321";
-            puerto = "5566";
+            password = "Avilaneri29";
+            puerto = "6000";
             db = "Example_db";
 
         }
