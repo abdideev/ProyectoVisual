@@ -36,13 +36,14 @@
             this.SalirBtn = new System.Windows.Forms.Button();
             this.NoCuentaTxt = new System.Windows.Forms.TextBox();
             this.NIPTxt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(116, 45);
+            this.label1.Location = new System.Drawing.Point(116, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(151, 19);
             this.label1.TabIndex = 0;
@@ -52,7 +53,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(68, 64);
+            this.label2.Location = new System.Drawing.Point(68, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(260, 50);
             this.label2.TabIndex = 1;
@@ -123,12 +124,23 @@
             this.NIPTxt.TabIndex = 7;
             this.NIPTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(149, 97);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 19);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "CUSTOMIX";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(64)))), ((int)(((byte)(81)))));
             this.ClientSize = new System.Drawing.Size(375, 451);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.NIPTxt);
             this.Controls.Add(this.NoCuentaTxt);
             this.Controls.Add(this.SalirBtn);
@@ -157,6 +169,7 @@
         private System.Windows.Forms.Button SalirBtn;
         private System.Windows.Forms.TextBox NoCuentaTxt;
         private System.Windows.Forms.TextBox NIPTxt;
+        private System.Windows.Forms.Label label5;
     }
 }
 

@@ -57,10 +57,10 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.labelFecha = new System.Windows.Forms.Label();
             this.labelHora = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             this.panelTareas.SuspendLayout();
             this.panelHeader.SuspendLayout();
@@ -393,18 +393,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "GESTOR DE";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(201)))), ((int)(((byte)(214)))));
-            this.label5.Location = new System.Drawing.Point(12, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 42);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "GASTOS";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
             // labelFecha
             // 
             this.labelFecha.AutoSize = true;
@@ -432,6 +420,18 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(201)))), ((int)(((byte)(214)))));
+            this.label5.Location = new System.Drawing.Point(12, 33);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(150, 42);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "GASTOS";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // Gastos
             // 
@@ -503,9 +503,9 @@
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.Label labelHora;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label5;
     }
 }
