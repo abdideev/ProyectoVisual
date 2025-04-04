@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionEmpresa.clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,12 +25,30 @@ namespace GestionEmpresa
             String ivan = "hola gays";
         }
 
-        private void EntrarBtn_Click(object sender, EventArgs e)
+        private async void EntrarBtn_Click(object sender, EventArgs e)
         {
-            Dashboard f2 = new Dashboard();
-            this.Hide();
-            f2.ShowDialog();
-            this.Show();
+            string noCuenta = NoCuentaTxt.Text;
+            string nip = NIPTxt.Text;
+
+            db.dbQuerys dbquerys = new db.dbQuerys();
+
+            usuario usuarioAutenticado = await dbquerys.Login(noCuenta, nip);
+
+                if (usuarioAutenticado != null)
+                {
+
+                    MessageBox.Show("Bienvenido");
+                    Dashboard dashboard = new Dashboard();
+                    dashboard.Show();
+                    this.Hide();
+
+                }
+                else
+                {
+                    MessageBox.Show("Error de usuario o contraseña");
+                    return;
+                }
+
         }
 
         private void SalirBtn_Click(object sender, EventArgs e)

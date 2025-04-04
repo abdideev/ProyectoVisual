@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GestionEmpresa.clases;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace GestionEmpresa
 {
     public partial class Dashboard : Form
     {
+        db.dbConnection DbConnection = new db.dbConnection();
         public Dashboard()
         {
             InitializeComponent();
@@ -50,6 +53,7 @@ namespace GestionEmpresa
 
         private void SalirBtn_Click(object sender, EventArgs e)
         {
+            DbConnection.Disconnect();
             Close();
         }
 

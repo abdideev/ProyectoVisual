@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GestionEmpresa.clases;
+using GestionEmpresa.db;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,32 @@ namespace GestionEmpresa
 {
     public partial class Gastos : Form
     {
+        db.dbQuerys Dbquerys = new db.dbQuerys();
+
         public Gastos()
         {
             InitializeComponent();
+
+
+            List<categoria> categoriasList = new List<categoria>();
+            List<tipo> tiposList = new List<tipo>();
+            List<metodo_pago> metodosPagoList = new List<metodo_pago>();
+
+            categoriasList = Dbquerys.GetCategorias(2);
+            tiposList = Dbquerys.GetTipos();
+            metodosPagoList = Dbquerys.GetMetodoPago();
+
+
+            foreach (var categoria in categoriasList)
+            {
+                cmbCategoria.Items.Add(categoria.Nombre);
+            }
+
+            foreach (var metodo in metodosPagoList)
+            {
+                cmbPago.Items.Add(metodo.Nombre);
+            }
+
         }
 
         #region "Variables"
@@ -101,6 +126,11 @@ namespace GestionEmpresa
         {
             this.labelHora.Text = DateTime.Now.ToString("hh:mm:ss");
             this.labelFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
