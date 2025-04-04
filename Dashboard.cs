@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +16,21 @@ namespace GestionEmpresa
     public partial class Dashboard : Form
     {
         db.dbConnection DbConnection = new db.dbConnection();
+        db.dbQuerys DbQuerys = new db.dbQuerys();
+
+        double ingresosTotales = 0;
+        double gastosTotales = 0;
+        double beneficio = 0;
         public Dashboard()
         {
             InitializeComponent();
+            ingresosTotales = DbQuerys.GetMontosTotales(1);
+            gastosTotales = DbQuerys.GetMontosTotales(2);
+            beneficio = ingresosTotales - gastosTotales;
+
+            labelIngreso.Text = ingresosTotales.ToString();
+            labelGasto.Text = gastosTotales.ToString();
+            labelBeneficio.Text = beneficio.ToString();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -45,6 +58,15 @@ namespace GestionEmpresa
 
         private void ReporteBtn_Click(object sender, EventArgs e)
         {
+            ExportadorExcel exportador = new ExportadorExcel();
+
+            string carpetaRoot = Path.Combine(@"C:\Users\Mar\Documents\", "Ingresos-Gastos");
+            Directory.CreateDirectory(carpetaRoot);
+            string carpetaReporteGeneral = Path.Combine(@"C:\Users\Mar\Documents\Ingresos-Gastos\", "ReporteGeneral");
+            Directory.CreateDirectory(carpetaReporteGeneral);
+            string ruta = Path.Combine(carpetaReporteGeneral, "reporte-general-" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".xlsx");
+
+            exportador.ExportarBalanceGeneral(int.Parse(labelIngreso.Text), int.Parse(labelGasto.Text), ruta);
             //Reporte f5 = new Reporte();
             //this.Hide();
             //f5.ShowDialog();
@@ -73,6 +95,11 @@ namespace GestionEmpresa
         }
 
         private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

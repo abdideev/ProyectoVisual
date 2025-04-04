@@ -232,15 +232,15 @@ namespace GestionEmpresa.db
             }
         }
 
-        public string DeleteTransaction(int id_transaccion)
+        public string DeleteTransaction(int id)
         {
-            string query = "DELETE FROM transaccion WHERE id = @id";
+            string query = "DELETE FROM transaccion WHERE id = @Id";
             try
             {
                 using (var conn = DbConnection.CreaeConexion())
                 using (var cmd = new NpgsqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@id", id_transaccion);
+                    cmd.Parameters.AddWithValue("@Id", id);
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
@@ -259,5 +259,67 @@ namespace GestionEmpresa.db
             }
         }
 
+        public void UpdateTransaction(int id_transaccion, int id_usuario, int id_categoria, int id_metodo_pago, string concepto, double monto, DateTime fecha, string descripcion)
+        {
+            string query = "UPDATE transaccion SET id_usuario = @id_usuario, id_categoria = @id_categoria, id_metodo_pago = @id_metodo_pago, " +
+                           "concepto = @concepto, monto = @monto, fecha = @fecha, descripcion = @descripcion WHERE id = @id_transaccion";
+            try
+            {
+                using (var conn = DbConnection.CreaeConexion())
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id_transaccion", id_transaccion);
+                    cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
+                    cmd.Parameters.AddWithValue("@id_categoria", id_categoria);
+                    cmd.Parameters.AddWithValue("@id_metodo_pago", id_metodo_pago);
+                    cmd.Parameters.AddWithValue("@concepto", concepto);
+                    cmd.Parameters.AddWithValue("@monto", monto);
+                    cmd.Parameters.AddWithValue("@fecha", fecha);
+                    cmd.Parameters.AddWithValue("@descripcion", descripcion);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Transacción actualizada correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró la transacción con el ID especificado.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en la base de datos al actualiza transaccion: " + ex);
+            }
+        }
+
+        public double GetMontosTotales(int categoria_id)
+        {
+            string query = "SELECT SUM(t.monto) AS total " +
+               "FROM transaccion t " +
+               "JOIN categoria c ON t.id_categoria = c.id " +
+               "WHERE c.id_tipo = @id";
+            double totalIngresos = 0;
+            try
+            {
+                using (var conn = DbConnection.CreaeConexion())
+                using (var cmd = new NpgsqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", categoria_id);
+                    object result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value)
+                    {
+                        totalIngresos = Convert.ToDouble(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en la base de datos al obtener ingresos: " + ex.Message);
+            }
+            return totalIngresos;
+        }
     }
 }

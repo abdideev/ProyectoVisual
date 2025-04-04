@@ -231,13 +231,14 @@
             this.label8.TabIndex = 7;
             this.label8.Text = "Gastos: $";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.PaleGreen;
-            this.label9.Location = new System.Drawing.Point(584, 201);
+            this.label9.Location = new System.Drawing.Point(624, 201);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(164, 36);
             this.label9.TabIndex = 8;
@@ -263,11 +264,11 @@
             this.labelGasto.AutoSize = true;
             this.labelGasto.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelGasto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelGasto.Location = new System.Drawing.Point(452, 201);
+            this.labelGasto.Location = new System.Drawing.Point(457, 201);
             this.labelGasto.Name = "labelGasto";
-            this.labelGasto.Size = new System.Drawing.Size(98, 36);
+            this.labelGasto.Size = new System.Drawing.Size(150, 36);
             this.labelGasto.TabIndex = 10;
-            this.labelGasto.Text = "label1";
+            this.labelGasto.Text = "Loading...";
             this.labelGasto.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // labelBeneficio
@@ -275,11 +276,11 @@
             this.labelBeneficio.AutoSize = true;
             this.labelBeneficio.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBeneficio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelBeneficio.Location = new System.Drawing.Point(482, 136);
+            this.labelBeneficio.Location = new System.Drawing.Point(479, 136);
             this.labelBeneficio.Name = "labelBeneficio";
-            this.labelBeneficio.Size = new System.Drawing.Size(98, 36);
+            this.labelBeneficio.Size = new System.Drawing.Size(150, 36);
             this.labelBeneficio.TabIndex = 11;
-            this.labelBeneficio.Text = "label1";
+            this.labelBeneficio.Text = "Loading...";
             this.labelBeneficio.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // labelIngreso
@@ -287,11 +288,11 @@
             this.labelIngreso.AutoSize = true;
             this.labelIngreso.Font = new System.Drawing.Font("Microsoft YaHei", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIngreso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.labelIngreso.Location = new System.Drawing.Point(746, 201);
+            this.labelIngreso.Location = new System.Drawing.Point(794, 201);
             this.labelIngreso.Name = "labelIngreso";
-            this.labelIngreso.Size = new System.Drawing.Size(98, 36);
+            this.labelIngreso.Size = new System.Drawing.Size(150, 36);
             this.labelIngreso.TabIndex = 12;
-            this.labelIngreso.Text = "label1";
+            this.labelIngreso.Text = "Loading...";
             this.labelIngreso.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Dashboard

@@ -177,6 +177,7 @@
             this.btnReporte.TabIndex = 3;
             this.btnReporte.Text = "Reporte";
             this.btnReporte.UseVisualStyleBackColor = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
             // btnEliminar
             // 
@@ -370,6 +371,7 @@
             this.dgvListado.RowHeadersWidth = 51;
             this.dgvListado.Size = new System.Drawing.Size(769, 150);
             this.dgvListado.TabIndex = 46;
+            this.dgvListado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellClick);
             // 
             // label1
             // 

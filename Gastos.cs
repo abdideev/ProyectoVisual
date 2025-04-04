@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace GestionEmpresa
         List<metodo_pago> metodosPagoList = new List<metodo_pago>();
         List<transaccionDetallada> transaccionesList = new List<transaccionDetallada>();
 
+
+        int id_transaccion;
         public Gastos()
         {
             InitializeComponent();
@@ -109,9 +112,22 @@ namespace GestionEmpresa
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            nEstadoguardar = 2;
-            this.LimpiarTexto();
+        {            
+
+            if (dgvListado.Rows.Count > 0 && dgvListado.CurrentRow != null)
+            {
+                id_transaccion = Convert.ToInt32(dgvListado.CurrentRow.Cells["IdTransaccion"].Value);
+                txtConcepto.Text = dgvListado.CurrentRow.Cells["Concepto"].Value.ToString();
+                txtMonto.Text = dgvListado.CurrentRow.Cells["Monto"].Value.ToString();
+                txtDescripcion.Text = dgvListado.CurrentRow.Cells["Descripcion"].Value.ToString();
+                dpFecha.Value = Convert.ToDateTime(dgvListado.CurrentRow.Cells["Fecha"].Value);
+                cmbCategoria.Text = dgvListado.CurrentRow.Cells["Categoria"].Value.ToString();
+                cmbPago.Text = dgvListado.CurrentRow.Cells["MetodoPago"].Value.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una transacción para actualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             this.EstadoTexto(true);
             this.EstadoBotonesProcesos(true);
             this.EstadoBotonesPrincipales(false);
@@ -130,6 +146,43 @@ namespace GestionEmpresa
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+            if (nEstadoguardar == 1)
+            {
+                CrearTransaccionGasto();
+            }
+            if (nEstadoguardar == 2)
+            {
+                ActualizarTransaccionGasto();
+            }
+        }
+
+        private void Gastos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvListado.Rows.Count > 0 && dgvListado.CurrentRow != null)
+            {
+                int id_transaccion = Convert.ToInt32(dgvListado.CurrentRow.Cells["IdTransaccion"].Value);
+
+                dbQuerys db = new dbQuerys();
+                string resultado = db.DeleteTransaction(id_transaccion);
+
+                MessageBox.Show(resultado, "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dgvListado.DataSource = db.GetTransactions("Gasto");
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una transacción para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void CrearTransaccionGasto()
         {
             int usuario_id = db.dbQuerys.user1.Id;
             int categoria_id = 0;
@@ -164,31 +217,64 @@ namespace GestionEmpresa
             this.EstadoBotonesProcesos(false);
             this.EstadoBotonesPrincipales(true);
             dgvListado.DataSource = Dbquerys.GetTransactions("Gasto");
-
         }
 
-        private void Gastos_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
+        public void ActualizarTransaccionGasto()
         {
             if (dgvListado.Rows.Count > 0 && dgvListado.CurrentRow != null)
             {
                 int id_transaccion = Convert.ToInt32(dgvListado.CurrentRow.Cells["IdTransaccion"].Value);
+                int usuario_id = db.dbQuerys.user1.Id;
+                int categoria_id = 0;
+                int metodo_pago_id = 0;
+                string concepto = txtConcepto.Text;
+                double monto;
+                if (!double.TryParse(txtMonto.Text, out monto))
+                {
+                    MessageBox.Show("El monto ingresado no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                DateTime fecha = dpFecha.Value;
+                string descripcion = txtDescripcion.Text;
+                string categoria_nombre = cmbCategoria.Text;
+                string tipo_pago = cmbPago.Text;
 
-                dbQuerys db = new dbQuerys();
-                string resultado = db.DeleteTransaction(id_transaccion);
+                foreach (var categoria in categoriasList)
+                {
+                    if (categoria.Nombre.Equals(categoria_nombre))
+                    {
+                        categoria_id = categoria.Id;
+                    }
+                }
 
-                MessageBox.Show(resultado, "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                foreach (var metodo in metodosPagoList)
+                {
+                    if (metodo.Nombre.Equals(tipo_pago))
+                    {
+                        metodo_pago_id = metodo.Id;
+                    }
+                }
 
-                dgvListado.DataSource = db.GetTransactions("Gasto");
+                Dbquerys.UpdateTransaction(id_transaccion, usuario_id, categoria_id, metodo_pago_id, concepto, monto, fecha, descripcion);
+
+                dgvListado.DataSource = Dbquerys.GetTransactions("Gasto");
             }
             else
             {
-                MessageBox.Show("Seleccione una transacción para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione una transacción para actualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            string carpetaRoot = Path.Combine(@"C:\Users\Mar\Documents\", "Ingresos-Gastos");
+            Directory.CreateDirectory(carpetaRoot);
+            string carpetaGastos = Path.Combine(@"C:\Users\Mar\Documents\Ingresos-Gastos\", "Gastos");
+            Directory.CreateDirectory(carpetaGastos);
+            string ruta = Path.Combine(carpetaGastos, "reporte-gastos-" + DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss") + ".xlsx");
+
+            ExportadorExcel exportador = new ExportadorExcel();
+            exportador.ExportarConInterop(transaccionesList, ruta);
         }
     }
 }
